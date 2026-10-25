@@ -1,0 +1,20 @@
+# Build & Output
+bin/
+obj/
+dist/
+*.exe
+*.dll
+*.pdb
+
+# User & IDE
+*.user
+*.suo
+.vs/
+.vscode/
+
+# Logs & OS
+*.log
+logs/
+.DS_Store
+Thumbs.db
+desktop.ini

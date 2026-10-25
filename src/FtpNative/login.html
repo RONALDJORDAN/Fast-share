@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f8fc">
+<meta name="robots" content="noindex, nofollow">
+<title>Entrar - FastCloud</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--text:#1f2328;--muted:#667085;--line:#e6eaf1;--accent:#1a73e8;--accent-2:#3f8cf5;--danger:#d93025;--ok:#137333}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#e8f0fe 0,transparent 60%),radial-gradient(900px 500px at 110% 110%,#e6f4ea 0,transparent 55%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom))}
+.wrap{width:100%;max-width:400px}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-size:24px;font-weight:700;letter-spacing:-.4px;margin-bottom:18px}
+.brand svg{width:38px;height:38px;color:var(--accent);filter:drop-shadow(0 5px 10px rgba(26,115,232,.25))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 18px 50px rgba(16,24,40,.1);padding:26px 22px;animation:cardIn .38s cubic-bezier(.2,.7,.2,1)}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+::selection{background:#cfe1ff}
+h1{font-size:21px;margin:0 0 6px;letter-spacing:-.3px}
+.lead{margin:0 0 20px;font-size:13px;line-height:1.55;color:var(--muted)}
+label{display:block;font-size:12.5px;font-weight:600;color:#3c4043;margin:0 0 6px}
+.field{margin-bottom:14px}
+.inputWrap{position:relative;display:flex;align-items:center}
+input{width:100%;height:50px;border:1px solid #d8dee9;border-radius:14px;background:#fbfcfe;padding:0 14px;font:inherit;font-size:15px;color:var(--text);outline:none;transition:border-color .16s,box-shadow .16s,background .16s}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,115,232,.14);background:#fff}
+input[type=password]{padding-right:76px}
+.show{position:absolute;right:6px;border:0;background:transparent;color:var(--accent);font-size:12px;font-weight:600;padding:10px 10px;border-radius:10px;transition:background .16s}
+.show:hover{background:#eef4ff}
+.err{background:#fce8e6;color:#a50e0e;border-radius:12px;padding:11px 13px;font-size:12.5px;font-weight:500;margin:0 0 16px;line-height:1.45;animation:popIn .18s ease}
+.ok{background:#e6f4ea;color:var(--ok);border-radius:12px;padding:11px 13px;font-size:12.5px;font-weight:500;margin:0 0 16px;line-height:1.5;animation:popIn .18s ease}
+.btn{width:100%;height:50px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:15px;font-weight:700;margin-top:4px;box-shadow:0 8px 20px rgba(26,115,232,.24);transition:transform .12s,box-shadow .16s,filter .16s}
+.btn:hover{filter:brightness(1.03);box-shadow:0 10px 26px rgba(26,115,232,.32)}
+.btn:active{transform:scale(.985)}
+.btn:disabled{opacity:.6;cursor:wait;box-shadow:none}
+.note{margin:16px 2px 0;font-size:11.5px;line-height:1.6;color:var(--muted);text-align:center}
+.note b{color:#3c4043;font-weight:600}
+.foot{margin-top:18px;text-align:center;font-size:11px;color:#98a2b3}
+.foot code{font-size:11px;color:#667085}
+.credit{margin-top:14px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9aa5b8;user-select:none}
+.credit b{color:var(--accent);font-weight:800}
+.opts{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 16px;font-size:12.5px}
+.check{display:flex;align-items:center;gap:8px;font-weight:500;color:#3c4043;margin:0;cursor:pointer}
+.check input{width:16px;height:16px;padding:0;accent-color:var(--accent);cursor:pointer}
+.link{border:0;background:none;color:var(--accent);font:inherit;font-weight:600;padding:2px;cursor:pointer}
+.link:hover{text-decoration:underline}
+.center{text-align:center;margin-top:14px}
+.rules{list-style:none;margin:0 0 14px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe;font-size:11.5px;color:var(--muted);display:grid;grid-template-columns:1fr 1fr;gap:5px 10px}
+.rules li{display:flex;align-items:center;gap:6px;line-height:1.35;transition:color .2s}
+.rules li::before{content:'\2715';font-weight:700;color:#b42318;transition:color .2s,transform .2s}
+.rules li.ok{color:var(--ok)}
+.rules li.ok::before{content:'\2713';color:var(--ok);transform:scale(1.08)}
+.regErr{margin:0 0 14px}
+@media(max-width:380px){.rules{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 19a4.5 4.5 0 0 1-.53-8.97A6.5 6.5 0 0 1 18.6 9.4 4.3 4.3 0 0 1 18 19z"/></svg>
+FastCloud
+</div>
+
+<div class="card" id="loginCard">
+<h1>Entrar</h1>
+<p class="lead">Use o mesmo usuario e senha cadastrados no aplicativo FastCloud.</p>
+__ERROR_BLOCK__
+<form method="post" action="/login" autocomplete="on" id="loginForm">
+<input type="hidden" name="next" value="__NEXT__">
+<div class="field">
+<label for="username">Usuario</label>
+<input id="username" name="username" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required autofocus>
+</div>
+<div class="field">
+<label for="password">Senha</label>
+<div class="inputWrap">
+<input id="password" name="password" type="password" autocomplete="current-password" required>
+<button class="show" id="show" type="button" aria-label="Mostrar senha">Mostrar</button>
+</div>
+</div>
+<div class="opts">
+<label class="check"><input id="remember" name="remember" type="checkbox" value="1"> Lembrar senha</label>
+<button class="link" id="noAccess" type="button">Nao tenho acesso</button>
+</div>
+<button class="btn" type="submit">Entrar</button>
+</form>
+<p class="note"><b>Acesso protegido.</b> Sem o login e a senha corretos nenhum arquivo e exibido, baixado ou alterado.</p>
+</div>
+
+<div class="card" id="registerCard" hidden>
+<h1>Solicitar acesso</h1>
+<p class="lead">Crie seu login e senha. A solicitacao aparece no FastCloud do computador e precisa ser aprovada pelo administrador.</p>
+<div class="err regErr" id="regError" hidden></div>
+<div class="ok" id="regSuccess" hidden>Solicitacao enviada. Aguarde a aprovacao no FastCloud do computador para entrar.</div>
+<form id="registerForm" autocomplete="off" novalidate>
+<div class="field">
+<label for="regUser">Login</label>
+<input id="regUser" name="username" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="32" required>
+</div>
+<div class="field">
+<label for="regPass">Senha</label>
+<div class="inputWrap">
+<input id="regPass" name="password" type="password" autocomplete="new-password" required>
+<button class="show" id="showReg" type="button" aria-label="Mostrar senha">Mostrar</button>
+</div>
+</div>
+<div class="field">
+<label for="regConfirm">Confirmar senha</label>
+<input id="regConfirm" name="confirm" type="password" autocomplete="new-password" required>
+</div>
+<ul class="rules" id="rules">
+<li data-rule="length">Minimo de 8 caracteres</li>
+<li data-rule="upper">Uma letra maiuscula</li>
+<li data-rule="digit">Um numero</li>
+<li data-rule="special">Um caractere especial</li>
+</ul>
+<button class="btn" id="registerBtn" type="submit">Solicitar acesso</button>
+<div class="center"><button class="link" id="backLogin" type="button">Voltar para o login</button></div>
+</form>
+</div>
+
+<p class="foot"><code>__LOGIN_URL__</code></p>
+<p class="credit">criado por <b>J.A</b></p>
+</div>
+<script>
+const loginCard=document.getElementById('loginCard');
+const registerCard=document.getElementById('registerCard');
+const loginForm=document.getElementById('loginForm');
+const registerForm=document.getElementById('registerForm');
+const user=document.getElementById('username');
+const remember=document.getElementById('remember');
+const regUser=document.getElementById('regUser');
+const regPass=document.getElementById('regPass');
+const regConfirm=document.getElementById('regConfirm');
+const regError=document.getElementById('regError');
+const regSuccess=document.getElementById('regSuccess');
+const registerBtn=document.getElementById('registerBtn');
+const saved=localStorage.getItem('fc_user');
+if(saved){user.value=saved;remember.checked=true;}
+loginForm.addEventListener('submit',function(){
+if(remember.checked){localStorage.setItem('fc_user',user.value.trim());}
+else{localStorage.removeItem('fc_user');}
+});
+function bindShow(buttonId,inputId){
+const button=document.getElementById(buttonId),input=document.getElementById(inputId);
+button.addEventListener('click',function(){
+const show=input.type==='password';
+input.type=show?'text':'password';
+button.textContent=show?'Ocultar':'Mostrar';
+button.setAttribute('aria-label',show?'Ocultar senha':'Mostrar senha');
+input.focus();
+});
+}
+bindShow('show','password');
+bindShow('showReg','regPass');
+document.getElementById('noAccess').addEventListener('click',function(){
+loginCard.hidden=true;registerCard.hidden=false;regError.hidden=true;regSuccess.hidden=true;
+registerForm.hidden=false;regUser.value='';regPass.value='';regConfirm.value='';paintRules();regUser.focus();
+});
+document.getElementById('backLogin').addEventListener('click',function(){
+registerCard.hidden=true;loginCard.hidden=false;user.focus();
+});
+const tests={
+length:function(value){return value.length>=8;},
+upper:function(value){return /[A-Z]/.test(value);},
+digit:function(value){return /[0-9]/.test(value);},
+special:function(value){return /[^A-Za-z0-9]/.test(value);}
+};
+function paintRules(){
+const value=regPass.value;
+document.querySelectorAll('#rules li').forEach(function(item){
+const ok=tests[item.getAttribute('data-rule')](value);
+item.classList.toggle('ok',ok);
+});
+}
+regPass.addEventListener('input',paintRules);
+function showRegError(message){regError.textContent=message;regError.hidden=false;}
+function validPassword(value){return tests.length(value)&&tests.upper(value)&&tests.digit(value)&&tests.special(value);}
+registerForm.addEventListener('submit',async function(event){
+event.preventDefault();
+regError.hidden=true;
+const username=regUser.value.trim();
+const password=regPass.value;
+if(!/^[A-Za-z0-9._-]{3,32}$/.test(username)){showRegError('Login invalido. Use de 3 a 32 letras, numeros, ponto, hifen ou sublinhado.');return;}
+if(!validPassword(password)){showRegError('A senha nao atende aos requisitos abaixo.');return;}
+if(password!==regConfirm.value){showRegError('As senhas nao conferem.');return;}
+registerBtn.disabled=true;registerBtn.textContent='Enviando...';
+try{
+const body=new URLSearchParams({username:username,password:password,confirm:regConfirm.value});
+const response=await fetch('/register',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body});
+const data=await response.json().catch(function(){return {};});
+if(!response.ok||!data.ok){throw new Error(data.error||('Falha ao solicitar acesso (HTTP '+response.status+').'));}
+registerForm.hidden=true;regSuccess.hidden=false;
+}catch(error){showRegError(error.message||'Nao foi possivel enviar a solicitacao.');}
+finally{registerBtn.disabled=false;registerBtn.textContent='Solicitar acesso';}
+});
+</script>
+</body>
+</html>
